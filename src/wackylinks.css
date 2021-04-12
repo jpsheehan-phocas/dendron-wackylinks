@@ -1,0 +1,31 @@
+a[href*=".tags."]::before,
+a[href*="tags."]::before {
+  content: "#";
+}
+
+a[href*=".tags."],
+a[href*="tags."] {
+  color: #000;
+  background: #eaeaea;
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 2px;
+}
+
+a.jira-task {
+  color: #000;
+  background: #ffeeee;
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: solid 1px #ffaaaa;
+}
+
+a.confluence-page {
+  color: #000;
+  background: #eeeeff;
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: solid 1px #aaaaff;
+}
