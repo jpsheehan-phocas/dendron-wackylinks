@@ -11,10 +11,10 @@ import { IReplacer, Global } from "../types";
 import { getOuterStrings } from "./helpers";
 import AtlassianApi from "../api/AtlassianApi";
 
-const cache = (global as Global).wackyCache;
-if (typeof cache === "undefined") {
-  Object.assign(cache, { jira: {}, confluence: {} });
+if (typeof (global as Global).wackyCache === "undefined") {
+  (global as Global).wackyCache = { jira: {}, confluence: {} };
 }
+const cache = (global as Global).wackyCache;
 
 const atlassian = (() => {
   try {

@@ -7,7 +7,6 @@ const replacers: IReplacer[] = [...AtlassianReplacers, TagReplacer];
 function WackyLinks(markdown: string): string {
   let newMarkdown = markdown;
   for (let replacer of replacers) {
-    newMarkdown = replacer.toString();
     if (replacer.pattern.test(newMarkdown)) {
       let match = replacer.pattern.exec(newMarkdown);
       while (match) {

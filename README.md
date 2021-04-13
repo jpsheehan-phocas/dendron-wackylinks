@@ -29,7 +29,7 @@ You'll need to modify the parser so that wackylinks can be run. From Visual Stud
 At the top of this file you will need to import the wackylinks parser:
 
 ```javascript
-const wackylinks = require("/the/absolute/path/to/dendron-wackylinks/dist/index.js");
+const wackylinks = require("/the/absolute/path/to/dendron-wackylinks/dist/wackylinks.js").default;
 ```
 
 If you're on Windows you may need to use a double-backslash `\\\\` to represent the path seperator.

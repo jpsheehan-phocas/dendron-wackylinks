@@ -1,21 +1,39 @@
-const path = require("path")
+//@ts-check
 
-module.exports = {
-  entry: {
-    filename: "./src/index.ts",
-  },
-  target: "node",
+'use strict';
+
+const path = require('path');
+
+/**@type {import('webpack').Configuration}*/
+const config = {
+  target: 'node', // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
+
+  entry: './src/index.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
-    filename: "bundle3.js",
-    path: path.resolve(__dirname, "dist"),
-    library: {
-      type: "commonjs2"
-    }
+    // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'wackylinks.js',
+    libraryTarget: 'commonjs2',
+  },
+  externals: {
+    vscode: 'commonjs vscode' // the vscode-module is created on-the-fly and must be excluded. Add other modules that cannot be webpack'ed, 📖 -> https://webpack.js.org/configuration/externals/
   },
   resolve: {
-    extensions: [".ts", ".js"]
+    // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
+    extensions: ['.ts', '.js']
   },
   module: {
-    rules: [{ test: /\.ts$/, loader: 'ts-loader' }]
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader'
+          }
+        ]
+      }
+    ]
   }
-}
+};
+module.exports = config;
