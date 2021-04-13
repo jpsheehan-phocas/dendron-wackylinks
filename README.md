@@ -6,7 +6,7 @@ _Better Dendron integration with Jira, Confluence, and GitHub._
 
 ## Goals
 
-This project aims to enhance [Dendron's](https://dendron.so) wikilinks feature by fetching extra information from external APIs. Currently, this project hooks into the custom CSS and custom parser functionality of Dendron's Markdown Preview Enhanced (MPE) plugin.
+This project aims to enhance [Dendron's](https://dendron.so) markdown preview by fetching extra information from external APIs. Currently, this project hooks into the custom CSS and custom parser functionality of Dendron's Markdown Preview Enhanced (MPE) plugin.
 
 ## Installation
 
@@ -32,7 +32,7 @@ At the top of this file you will need to import the wackylinks parser:
 const wackylinks = require("/the/absolute/path/to/dendron-wackylinks/dist/wackylinks.js").default;
 ```
 
-If you're on Windows you may need to use a double-backslash `\\\\` to represent the path seperator.
+NOTE: If you're on Windows you may need to use a double-backslash `\\\\` to represent the path seperator.
 
 Then edit the `onWillParseMarkdown` function so that it reads:
 
@@ -95,11 +95,11 @@ TODO: write instructions for bash and powershell
 
 ## Usage
 
-Once you've followed the instructions in the previous sections, you should be able to simply paste your Jira, Confluence, and GitHub links into Dendron as wikilinks and they will be inserted into the Markdown Preview window with extra information.
+Once you've followed the instructions in the previous sections, you should be able to simply paste your Jira, Confluence, and GitHub links into Dendron as angle-bracketed links and they will be inserted into the Markdown Preview window with extra information.
 For example:
 
 ```markdown
-[[https://example.atlassian.net/browse/ABC-12345]]
+<https://example.atlassian.net/browse/ABC-12345>
 ```
 
 Is transformed into:

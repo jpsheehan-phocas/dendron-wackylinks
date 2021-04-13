@@ -40,7 +40,7 @@ const api = atlassian.api;
 
 const atlassianReplacers: IReplacer[] = [
   {
-    pattern: /\[\[(https:\/\/helpphocassoftware\.atlassian\.net\/browse\/(.*))\]\]/i,
+    pattern: /<(https:\/\/helpphocassoftware\.atlassian\.net\/browse\/(.*))>/i,
     execute: function (markdown, result) {
       const [preMatchStr, postMatchStr] = getOuterStrings(markdown, result);
       const url = result[1];
@@ -75,7 +75,7 @@ const atlassianReplacers: IReplacer[] = [
     },
   },
   {
-    pattern: /\[\[(https:\/\/helpphocassoftware\.atlassian\.net\/wiki\/spaces\/([~A-Za-z0-9\+_\-]+\/)*pages\/([0-9]+)\/.*)\]\]/i,
+    pattern: /<(https:\/\/helpphocassoftware\.atlassian\.net\/wiki\/spaces\/([~A-Za-z0-9\+_\-]+\/)*pages\/([0-9]+)\/.*)>/i,
     execute: function (markdown, result) {
       const [before, after] = getOuterStrings(markdown, result);
       const link = result[1];
